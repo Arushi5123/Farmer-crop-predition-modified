@@ -23,39 +23,47 @@ def prediction():
         unseen_data=[[N,P,K,tempurature,humidity,ph,rainfall]]
         converted_data=std.transform(unseen_data)
         prediction=model.predict(converted_data)[0]
-        df=pd.read_csv(r'C:\Users\DeLL\Desktop\Data_Science\Farmer\models\app_data.csv')
+        df=pd.read_csv(r'D:\Desktop\Farmer_crop_prediction\models\app_data.csv')#C:\Users\DeLL\Desktop\Data_Science\Farmer\models\app_data.csv
         if prediction==0:
             cluster=df[df['cluster']==0]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_0.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_0.html')
         elif prediction==1:
             cluster=df[df['cluster']==1]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_1.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_1.html')
         elif prediction==2:
             cluster=df[df['cluster']==2]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_2.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_2.html')
         elif prediction==3:
             cluster=df[df['cluster']==3]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_3.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_3.html')
         elif prediction==4:
             cluster=df[df['cluster']==4]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_4.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_4.html')
         elif prediction==5:
             cluster=df[df['cluster']==5]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_5_6_7.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_5_6_7.html')
         elif prediction==6:
             cluster=df[df['cluster']==6]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_5_6_7.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_5_6_7.html')
         elif prediction==7:
             cluster=df[df['cluster']==7]
             ls=list(cluster['Label'].value_counts().keys())
-            return render_template('cluster_5_6_7.html')
+            return render_template('cluster.html',crops=ls)
+            # return render_template('cluster_5_6_7.html')
 if __name__=='__main__':
     app.run(debug=True)
     
